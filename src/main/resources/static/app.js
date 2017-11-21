@@ -19,7 +19,7 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/incoming/messages', function (message) {
-            showMessage(JSON.parse(message.body).content);
+            showMessage(JSON.parse(message.body).username+JSON.parse(message.body).content);
         });
     });
 }
@@ -33,7 +33,8 @@ function disconnect() {
 }
 
 function sendMessage() {
-    stompClient.send("/app/message", {}, JSON.stringify({'message': $("#message").val()}));
+    stompClient.send("/app/message", {}, JSON.stringify({'message': $("#message").val(), 'username':'username'}));
+    // Få in username!
 }
 
 function showMessage(message) {

@@ -11,6 +11,6 @@ public class MessageController {
     @SendTo("/incoming/messages")
     public ReturnMessage message(Message message) throws Exception {
         Thread.sleep(1000); // simulated delay
-        return new ReturnMessage(message.getMessage());
+        return new ReturnMessage(message.getMessage(), message.getUsername());
     }
 }
