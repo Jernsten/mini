@@ -18,7 +18,6 @@ public class Repository {
     public void loadUsers() {
         String sql = "SELECT * FROM Academy_Projekt4.dbo.Students";
         
-        
         try (
                 Connection conn = dataSource.getConnection();
                 Statement stmt = conn.createStatement();
