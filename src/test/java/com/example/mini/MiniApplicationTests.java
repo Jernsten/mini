@@ -46,6 +46,6 @@ public class MiniApplicationTests {
 		
 		sut.loadUsers();
 		
-		assertEquals(sut.getUserList().size(), 1);
+		assertEquals(sut.getUserList().size(), 25);
 	}
 }

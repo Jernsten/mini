@@ -24,15 +24,14 @@ public class Repository {
                 ResultSet rs = stmt.executeQuery(sql)) {
             
             while (rs.next()) {
+                
                 String nickname = rs.getString("NickName");
-                // För att testa
-                System.out.println(nickname);
                 String password = rs.getString("Password");
+                String imgUrl = rs.getString("ImgUrl");
                 
-                //String imgUrl = rs.getString("ImgUrl");
-                
-                User user = new User(nickname, password, "");
+                User user = new User(nickname, password, imgUrl);
                 userList.add(user);
+                
             }
         } catch (SQLException e) {
             // Gör något med exception
