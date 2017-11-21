@@ -44,6 +44,12 @@ $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
     });
-    $("#connect")connect();
+
+    $("#connect").click(function(){
+        connect();
+    });
+
+    connect();
+
     $( "#send" ).click(function() { sendMessage(); });
 });

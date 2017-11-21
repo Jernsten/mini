@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Chatbook</title>
+</head>
+<body>
+    <form action="login" method="post">
+        <div>
+            <label>Name:</label>
+            <input type="text" id="user" name="user" th:value="${username}"/>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" id="password" name="password"/>
+        </div>
+        <div class="button">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</body>
+</html>
