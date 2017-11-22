@@ -34,7 +34,6 @@ function disconnect() {
 
 function sendMessage() {
     stompClient.send("/app/message", {}, JSON.stringify({'message': $("#message").val(), 'username': $("#username").val()}));
-    // Få in username!
 }
 
 function showMessage(message) {
@@ -44,7 +43,7 @@ function showMessage(message) {
 $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
-    }); // Kör över standardbeteenden vid submit
+    });
 
     $("#connect").click(function () {
         connect();
