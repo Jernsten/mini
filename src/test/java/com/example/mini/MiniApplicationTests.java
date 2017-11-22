@@ -27,7 +27,7 @@ public class MiniApplicationTests {
 	public void checkDBConnection(){
 		Repository sut = rep;
 		
-		HashMap<String,User> userList = sut.getUserList();
+		HashMap<String,User> userList = sut.loadUsers();
 		
 		assertEquals(userList.get("Kemal").getNickName(), "Kemal" );
 	}

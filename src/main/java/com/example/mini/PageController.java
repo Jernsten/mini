@@ -15,8 +15,9 @@ import java.util.List;
 @Controller
 public class PageController {
     
-    private Repository repository = new Repository();
-    private HashMap<String, User> userList = repository.getUserList();
+    @Autowired
+    private Repository repository;
+    
     
     @GetMapping("/login")
     public ModelAndView chat(HttpSession session) {
@@ -31,9 +32,10 @@ public class PageController {
     @PostMapping("/login")
     public ModelAndView login(@RequestParam String username, String password, HttpSession session) {
         
+        HashMap<String, User> userList = repository.loadUsers();
         User user = userList.get(username);
-        
-        // Om sername inte finns bland inladdade users från MSSQL
+    
+        // Om username inte finns bland inladdade users från MSSQL
         if (user == null) {
             return chat(session); // tillbaka till login
             
