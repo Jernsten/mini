@@ -76,7 +76,7 @@ public class Repository {
 
     public List<Message> loadOldMessages() {
         List<Message> messages = new ArrayList<>();
-        String sql = "SELECT TOP (10) (\n" +
+        String sql = "SELECT (\n" +
                 "\tSELECT NickName\n" +
                 "\tFROM Academy_Projekt4.dbo.Students AS StudentInfo\n" +
                 "\tWHERE StudentInfo.ID = MessageInfo.StudentID\n" +
