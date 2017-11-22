@@ -98,7 +98,7 @@ public class Repository {
                 messages.add(m);
             }
         }catch(SQLException e){
-            // Gör något här Thommy! <3
+            // Gör något här
         }
 
         return messages;
