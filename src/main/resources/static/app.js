@@ -19,7 +19,7 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/incoming/messages', function (message) {
-            showMessage(JSON.parse(message.body).username+JSON.parse(message.body).content);
+            showMessage(JSON.parse(message.body).username + ': ' + JSON.parse(message.body).content);
         });
     });
 }
@@ -33,7 +33,7 @@ function disconnect() {
 }
 
 function sendMessage() {
-    stompClient.send("/app/message", {}, JSON.stringify({'message': $("#message").val(), 'username':'username'}));
+    stompClient.send("/app/message", {}, JSON.stringify({'message': $("#message").val(), 'username': $("#username").val()}));
     // Få in username!
 }
 
@@ -44,13 +44,19 @@ function showMessage(message) {
 $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
+    }); // Kör över standardbeteenden vid submit
+
+    $("#connect").click(function () {
+        connect();
+    }); //
+
+    $(window).on("beforeunload", function () {
+        disconnect();
     });
 
-    $("#connect").click(function(){
-        connect();
+    $("#send").click(function () {
+        sendMessage();
     });
 
     connect();
-
-    $( "#send" ).click(function() { sendMessage(); });
 });

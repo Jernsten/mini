@@ -5,8 +5,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,31 +22,13 @@ public class MiniApplicationTests {
 	public void contextLoads() {
 	}
 	
-	@Test
-	public void createUserObject(){
-		User sut = new User("Kemme", "password", "http:/");
-		
-		assertEquals(sut.getNickName(), "Kemme");
-		assertEquals(sut.getPassword(), "password");
-		assertEquals(sut.isOnline(), true);
-	}
 	
 	@Test
-	public void createOnlineUsersObject(){
-		OnlineUsers sut = new OnlineUsers();
-		
-		sut.addUser(new User("Kemme", "password", "http:/"));
-		sut.addUser(new User("apa","hej", "haha"));
-		
-		assertEquals(sut.getOnlineUsers().size(),2);
-	}
-	
-	@Test
-	public void loadUsersFromDataBase(){
+	public void checkDBConnection(){
 		Repository sut = rep;
 		
-		sut.loadUsers();
+		HashMap<String,User> userList = sut.getUserList();
 		
-		assertEquals(sut.getUserList().size(), 25);
+		assertEquals(userList.get("Kemal").getNickName(), "Kemal" );
 	}
 }
