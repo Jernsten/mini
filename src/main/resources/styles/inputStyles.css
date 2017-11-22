@@ -1,8 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
   overflow-x: hidden;
@@ -30,14 +26,42 @@ form div {
   margin-bottom: 10%;
 }
 
+form .button {
+  padding-left: 45%;
+}
+
+form button {
+  display: inline-block;
+  margin-bottom: 0;
+  font-family: "Open Sans", sans;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 170, 60, 0.4);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #00aa3c;
+  border: 0px none transparent;
+  white-space: nowrap;
+  padding: 19px 20px;
+  font-size: 16px;
+  border-radius: 0px;
+  color: white;
+  min-width: 80px;
+  width: 20%;
+}
+
+form button:hover {
+  background-color: #009b36;
+}
+
 .swing {
   display: inline-block;
-  width: 215px;
-  height: 42px;
+  width: 100%;
+  height: 22px;
   padding: 10px 0 10px 15px;
   font-family: "Open Sans", sans;
   font-weight: 400;
-  color: #377D6A;
+  color: #00aa3c;
   background: #e7e7e7;
   border: 0;
   border-radius: 3px;
@@ -47,7 +71,7 @@ form div {
 }
 
 .swing::-webkit-input-placeholder {
-  color: #efefef;
+  color: rgba(255, 255, 255, 0);
   text-indent: 0;
   font-weight: 300;
 }
