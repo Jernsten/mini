@@ -35,7 +35,7 @@ public class Repository {
                 user = new User(nickName, password, imgUrl);
                 user.online(true);
             }
-            
+
         } catch (SQLException e) {
             // Gör något med exception
         }
