@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Chatbook</title>
+    <link href="/styles/inputStyles.css" rel="stylesheet">
 </head>
 <body>
     <form action="login" method="post">
         <div>
-            <label>Name:</label>
-            <input type="text" id="user" name="username" th:value="${username}"/>
+            <input type="text" class = "swing" id="user" name="username" th:value="${username}"/>
+            <label for = "user">Name:</label>
         </div>
         <div>
-            <label>Password:</label>
-            <input type="password" id="password" name="password"/>
+            <input type="password" class="swing" id="password" name="password"/>
+            <label for = "password">Password:</label>
         </div>
         <div class="button">
             <button type="submit">Login</button>
