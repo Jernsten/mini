@@ -74,7 +74,7 @@ public class Repository {
         return userList;
     }
 
-    private List<Message> loadOldMessages() {
+    public List<Message> loadOldMessages() {
         List<Message> messages = new ArrayList<>();
         String sql = "SELECT TOP (10) (\n" +
                 "\tSELECT NickName\n" +

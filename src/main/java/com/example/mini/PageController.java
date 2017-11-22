@@ -24,19 +24,20 @@ public class PageController {
     public ModelAndView chat(HttpSession session) {
         if (session.getAttribute("username") != null) {
             List<Message> messageList = repository.loadOldMessages(); // Contains messages from database
-
+            
             return new ModelAndView("chat")
+                    .addObject("oldmessages", messageList)
                     .addObject("username", session.getAttribute("username"));
         } else {
             return new ModelAndView("login");
         }
     }
-
+    
     @PostMapping("/login")
     public ModelAndView login(@RequestParam String username, String password, HttpSession session) {
         
         User user = repository.loadUser(username);
-    
+        
         // Om username inte finns bland inladdade users från MSSQL
         if (user == null) {
             System.out.println("null");

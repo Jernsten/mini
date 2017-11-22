@@ -54,7 +54,9 @@
                 </thead>
                 <tbody id="messages">
 
-                <tr th:each="message: ${oldmessages}"><td th:text="${message.username}+': '+${message.message}"> message </td></tr>
+                <tr th:each="message: ${oldmessages}">
+                    <td th:text="${message.username}+': '+${message.message}"> message </td>
+                </tr>
 
                 </tbody>
             </table>
