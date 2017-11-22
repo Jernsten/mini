@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,13 +23,15 @@ public class PageController {
     @GetMapping("/login")
     public ModelAndView chat(HttpSession session) {
         if (session.getAttribute("username") != null) {
+            List<Message> messageList = repository.loadOldMessages(); // Contains messages from database
+
             return new ModelAndView("chat")
                     .addObject("username", session.getAttribute("username"));
         } else {
             return new ModelAndView("login");
         }
     }
-    
+
     @PostMapping("/login")
     public ModelAndView login(@RequestParam String username, String password, HttpSession session) {
         

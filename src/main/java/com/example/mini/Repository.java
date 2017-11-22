@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Component
 public class Repository {
@@ -70,5 +72,35 @@ public class Repository {
             // Gör något med exception
         }
         return userList;
+    }
+
+    private List<Message> loadOldMessages() {
+        List<Message> messages = new ArrayList<>();
+        String sql = "SELECT TOP (10) (\n" +
+                "\tSELECT NickName\n" +
+                "\tFROM Academy_Projekt4.dbo.Students AS StudentInfo\n" +
+                "\tWHERE StudentInfo.ID = MessageInfo.StudentID\n" +
+                "\t) AS Name,\n" +
+                "    [Message],\n" +
+                "    [Time]\n" +
+                "  FROM [Academy_Projekt4].[dbo].[Messages] AS MessageInfo" +
+                "  ORDER BY Time";
+
+        try(Connection conn = dataSource.getConnection();
+            Statement st = conn.createStatement()){
+
+            ResultSet rs = st.executeQuery(sql);
+
+            while(rs.next()){
+                String name = rs.getString("Name");
+                String message = rs.getString("Message");
+                Message m = new Message(message, name);
+                messages.add(m);
+            }
+        }catch(SQLException e){
+            // Gör något här Thommy! <3
+        }
+
+        return messages;
     }
 }
