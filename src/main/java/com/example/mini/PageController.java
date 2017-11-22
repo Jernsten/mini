@@ -32,11 +32,11 @@ public class PageController {
     @PostMapping("/login")
     public ModelAndView login(@RequestParam String username, String password, HttpSession session) {
         
-        HashMap<String, User> userList = repository.loadUsers();
-        User user = userList.get(username);
+        User user = repository.loadUser(username);
     
         // Om username inte finns bland inladdade users från MSSQL
         if (user == null) {
+            System.out.println("null");
             return chat(session); // tillbaka till login
             
         } else {

@@ -13,7 +13,38 @@ public class Repository {
     @Autowired
     DataSource dataSource;
     
-    public HashMap<String,User> loadUsers() {
+    public User loadUser(String username) {
+        
+        String sql = "SELECT * FROM Academy_Projekt4.dbo.Students WHERE NickName = ?";
+        User user = null;
+        
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Academy_Projekt4.dbo.Students WHERE NickName = ?")) {
+            
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                String nickName = rs.getString("NickName");
+                
+                System.out.println(nickName + " signed in");
+                
+                String password = rs.getString("Password");
+                String imgUrl = rs.getString("ImgUrl");
+                user = new User(nickName, password, imgUrl);
+                user.online(true);
+            }
+            conn.close(); // Vill vi det?
+        } catch (SQLException e) {
+            // Gör något med exception
+        }
+        
+        return user;
+    }
+    
+    
+    public HashMap<String, User> loadUsers() {
         
         HashMap<String, User> userList = new HashMap<>();
         
