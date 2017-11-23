@@ -4,9 +4,18 @@
     <meta charset="UTF-8"/>
     <title>Chatbook</title>
     <link href="/styles/inputStyles.css" rel="stylesheet"/>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/main.css" rel="stylesheet"/>
+    <script src="/webjars/jquery/jquery.min.js"></script>
 </head>
 <body>
-    <form action="login" method="post">
+
+<div id="main-content" class="container">
+    <div id="menuTop">
+        <h1>WELCOME TO CHATBOOK</h1>
+    </div>
+</div>
+    <form action="/" method="post">
         <div>
             <input type="text" class = "swing" id="user" name="username" th:value="${username}" placeholder="Enter Name"/>
             <label for = "user">Name:</label>

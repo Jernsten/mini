@@ -19,9 +19,20 @@ public class PageController {
     
     @Autowired
     private Repository repository;
-    
-    
-    @GetMapping("/login")
+
+/*    @GetMapping("/")
+    public ModelAndView chat(HttpSession session) {
+        if (session.getAttribute("username") != null) {
+            List<Message> messageList = repository.loadOldMessages(); // Contains messages from database
+
+            return new ModelAndView("chat")
+                    .addObject("oldmessages", messageList)
+                    .addObject("username", session.getAttribute("username"));
+        } else {
+            return new ModelAndView("login");
+        }
+    }*/
+    @GetMapping("/")
     public ModelAndView chat(HttpSession session) {
         if (session.getAttribute("username") != null) {
             List<Message> messageList = repository.loadOldMessages(); // Contains messages from database
@@ -34,7 +45,7 @@ public class PageController {
         }
     }
     
-    @PostMapping("/login")
+    @PostMapping("/")
     public ModelAndView login(@RequestParam String username, String password, HttpSession session) {
         
         User user = repository.loadUser(username);
