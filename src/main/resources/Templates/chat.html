@@ -48,11 +48,9 @@
             <button type="submit" class="send">Send</button>
         </form>-->
         <form>
-            <fieldset>
-                <input type="text" id="message" placeholder="Type your message…" autofocus="autofocus"/>
-                <input type="hidden" id="username" th:value="${username}"/>
-                <button type="submit" id="send">Send</button>
-            </fieldset>
+            <input type="text" id="message" class="textarea" placeholder="Type your message…" autofocus="autofocus"/>
+            <input type="hidden" id="username" th:value="${username}"/>
+            <button type="submit" id="send">Send</button>
         </form>
 
     </div>
