@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -65,5 +66,12 @@ public class PageController {
             
             return chat(session); // vidare till chatt
         }
+    }
+
+    @GetMapping("/profile/{username}")
+    public ModelAndView profile(@PathVariable String username){
+        User user = repository.loadUserProfileInfo(username);
+        return new ModelAndView("profile").addObject("user", user);
+
     }
 }

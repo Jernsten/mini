@@ -107,4 +107,46 @@ public class Repository {
 
         return messages;
     }
+
+    public User loadUserProfileInfo(String username){
+        User user = new User();
+        String sql = "SELECT S.ID AS AccountID, S.NickName, P.FirstName, P.LastName, P.Age, P.[Description], S.ImgUrl\n" +
+                "FROM Students AS S, (\n" +
+                "\tSELECT NickName, FirstName, LastName, Age, [Description]\n" +
+                "\tFROM Profiles\n" +
+                "\t) AS P\n" +
+                "WHERE S.NickName = P.NickName AND S.NickName = ?";
+
+
+
+        try(Connection conn = dataSource.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            rs.next(); // Jump to first and only row
+            int userId = rs.getInt("AccountID");
+            String nickName = rs.getString("NickName");
+            String firstName = rs.getString("FirstName");
+            String lastName = rs.getString("LastName");
+            int age = rs.getInt("Age");
+            String description = rs.getString("Description");
+            String imgUrl = rs.getString("ImgUrl");
+
+            // Set user information to be shown in profile
+            user.setUserId(userId);
+            user.setNickName(nickName);
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
+            user.setAge(age);
+            user.setDescription(description);
+            user.setImgUrl(imgUrl);
+
+        }catch (SQLException e){
+            return null;
+        }
+
+        return user;
+    }
 }
