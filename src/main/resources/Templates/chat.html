@@ -17,16 +17,12 @@
     <header>
         <div class="row">
             <div class="col-md-6">
-                Hi <span id="name" th:text="${username}">username</span>, you're now ready to ChitChat!
+                <span id="chitchat">ChitChat</span>
+                <span class="slogan">Nice to have you back<span id="name" th:text="${username}">username</span>!</span>
+                <a href="/logout" id="logout" class="btn btn-default" type="submit"><button id="logout">Logout</button></a>
             </div>
         </div>
-        <div>
-
-            <a href="/logout" id="logout" class="btn btn-default" type="submit" style="float: right; margin-top: 1em;">Logout</a>
-
-        </div>
     </header>
-
     <ol class="chat">
         <div th:each="message: ${oldmessages}">
             <li th:class="(${message.username} == ${username}) ? 'self':'other'">
@@ -50,7 +46,7 @@
         <form>
             <input type="text" id="message" class="textarea" placeholder="Type your message…" autofocus="autofocus"/>
             <input type="hidden" id="username" th:value="${username}"/>
-            <input type="submit" id="send" />
+            <input type="submit" id="send"/>
         </form>
 
     </div>

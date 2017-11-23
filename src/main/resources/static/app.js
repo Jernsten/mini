@@ -82,5 +82,9 @@ $(function () {
         document.querySelector("#message").value = '';
     });
 
+    window.onload = function(){
+        $(".chat").animate({ scrollTop: $(document).height()}, 1000);
+    }
     connect();
+
 });
