@@ -20,7 +20,7 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/incoming/messages', function (message) {
-            showMessage(JSON.parse(message.body).username + ': ' + JSON.parse(message.body).content);
+            showMessage(message);
         });
     });
 }
@@ -30,7 +30,14 @@ function sendMessage() {
 }
 
 function showMessage(message) {
-    $("#messages").append("<tr><td>" + message + "</td></tr>");
+//    $("#messages").append("<tr><td class=\"speaker\">" + JSON.parse(message.body).username + "</td><td class=\"speach\">" + JSON.parse(message.body).content + "</td></tr>");
+
+    var out = "<li class=\"other\"><div class='msg'>" +
+        "<div class='user'>"+JSON.parse(message.body).username+"</div>" +
+        "<p>JSON.parse(message.body).content</p>" +
+        "<time>...time...</time></div></li>";
+
+    $("#messages").append(out);
 }
 
 function disconnect() {

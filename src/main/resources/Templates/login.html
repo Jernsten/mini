@@ -7,27 +7,29 @@
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/main.css" rel="stylesheet"/>
     <script src="/webjars/jquery/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet"/>
 
 </head>
 <body>
-
 <div id="main-content" class="container">
-    <div id="menuTop">
-        <h1>WELCOME TO CHATBOOK</h1>
+    <div id="title">
+        <h1>Academy</h1>
+        <h1 id="chitchat">ChitChat</h1>
+    </div>
+    <div id="slogan">
+        <p>A secret place where they aren't listening...</p>
+    </div>
+    <div class="login-page">
+        <div class="form">
+            <form action="/" method="post" class="login-form">
+                <input type="text" class="swing" id="user" name="username" th:value="${username}"
+                       placeholder="Enter Name"/>
+                <input type="password" class="swing" id="password" name="password" placeholder="Enter password"/>
+                <button type="submit">Let me in</button>
+            </form>
+        </div>
     </div>
 </div>
-    <form action="/" method="post">
-        <div>
-            <input type="text" class = "swing" id="user" name="username" th:value="${username}" placeholder="Enter Name"/>
-            <label for = "user">Name:</label>
-        </div>
-        <div>
-            <input type="password" class="swing" id="password" name="password" placeholder="Enter Password"/>
-            <label for = "password">Password:</label>
-        </div>
-        <div class="button">
-            <button type="submit">Login</button>
-        </div>
-    </form>
 </body>
 </html>

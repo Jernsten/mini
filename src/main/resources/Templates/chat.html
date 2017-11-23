@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Chatbook</title>
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
     <link href="/main.css" rel="stylesheet"/>
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
@@ -15,45 +15,34 @@
     Javascript and reload this page!</h2></noscript>
 <div id="main-content" class="container">
     <div class="row">
-
         <div class="col-md-6">
-            Hej <span th:text="${username}">username</span>, du är nu ansluten till chatten.
-        </div>
-
-    </div>
-
-    <!-- Messages field-->
-    <div class="row">
-        <div class="col-md-12">
-            <table id="conversation" class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Messages</th>
-                </tr>
-                </thead>
-                <tbody id="history">
-
-                <tr th:each="message: ${oldmessages}">
-                    <td th:text="${message.username}" class="speaker">Name</td>
-                    <td th:text="${message.message}" class="speach">Message</td>
-                </tr>
-                </tbody>
-
-                <tbody id="messages">
-
-                </tbody>
-            </table>
+            Hi <span id="name" th:text="${username}">username</span>, you're now ready to ChitChat!
         </div>
     </div>
 
-    <!-- Text field and send button-->
-    <div class="col-md-6">
-        <form class="form-inline">
-            <div class="form-group">
-                <input type="hidden" id="username" th:value="${username}"/>
-                <input type="text" id="message" class="form-control" placeholder="Your message here..."/>
-            </div>
-            <button id="send" class="btn btn-default" type="submit">Send</button>
+    <!-- New message template-->
+
+    <ol class="chat">
+        <div th:each="message: ${oldmessages}">
+            <li th:class="(${message.username} == ${username}) ? 'self':'other'">
+                <div class="msg">
+                    <div class="user" th:text="${message.username}">User</div>
+                    <p th:text="${message.message}">Message</p>
+                    <time>Time...</time>
+                </div>
+            </li>
+        </div>
+
+        <div id="messages"/>
+
+    </ol>
+
+    <!-- message input-->
+    <div class="typezone">
+        <form>
+            <textarea type="text" id="message" placeholder="Say something..."/>
+            <input type="hidden" id="username" th:value="${username}"/>
+            <button type="submit" class="send" value="Send"/>
         </form>
     </div>
 </div>
