@@ -34,7 +34,7 @@ function showMessage(message) {
 
     var out = "<li class=\"other\"><div class='msg'>" +
         "<div class='user'>"+JSON.parse(message.body).username+"</div>" +
-        "<p>JSON.parse(message.body).content</p>" +
+        "<p>"+JSON.parse(message.body).content+"</p>" +
         "<time>...time...</time></div></li>";
 
     $("#messages").append(out);
