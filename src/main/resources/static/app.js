@@ -57,6 +57,7 @@ $(function () {
 
     $("#send").click(function () {
         sendMessage();
+        document.querySelector("#message").value = '';
     });
 
     connect();
