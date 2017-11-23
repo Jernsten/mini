@@ -76,15 +76,19 @@ public class Repository {
 
     public List<Message> loadOldMessages() {
         List<Message> messages = new ArrayList<>();
-        String sql = "SELECT (\n" +
-                "\tSELECT NickName\n" +
-                "\tFROM Academy_Projekt4.dbo.Students AS StudentInfo\n" +
-                "\tWHERE StudentInfo.ID = MessageInfo.StudentID\n" +
-                "\t) AS Name,\n" +
-                "    [Message],\n" +
-                "    [Time]\n" +
-                "  FROM [Academy_Projekt4].[dbo].[Messages] AS MessageInfo" +
-                "  ORDER BY Time";
+        String sql = "SELECT *\n" +
+                "FROM (\t\n" +
+                "\tSELECT TOP 10 (\n" +
+                "\t\tSELECT NickName\n" +
+                "\t\tFROM Academy_Projekt4.dbo.Students AS StudentInfo\n" +
+                "\t\tWHERE StudentInfo.ID = MessageInfo.StudentID\n" +
+                "\t\t) AS Name,\n" +
+                "\t\t[Message],\n" +
+                "\t\t[Time]\n" +
+                "\tFROM [Academy_Projekt4].[dbo].[Messages] AS MessageInfo\n" +
+                "\tORDER BY ID DESC\n" +
+                "\t) AS TopTenNewMessages\n" +
+                "ORDER BY TopTenNewMessages.Time ASC";
 
         try(Connection conn = dataSource.getConnection();
             Statement st = conn.createStatement()){
