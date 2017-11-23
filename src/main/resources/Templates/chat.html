@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:overflow="http://www.w3.org/1999/xhtml">
 <head>
     <title>Chatbook</title>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
@@ -30,7 +30,7 @@
     </div>
 
     <!-- Messages field-->
-    <div class="row">
+    <div class="row" style="overflow-y: auto; height:600px;">
         <div class="col-md-12">
             <table id="conversation" class="table table-striped">
                 <thead>
@@ -52,6 +52,8 @@
     </div>
 
     <!-- Text field and send button-->
+    <footer>
+        <div class="row">
     <div class="col-md-6">
         <form class="form-inline">
             <div class="form-group">
@@ -61,6 +63,8 @@
             <button id="send" class="btn btn-default" type="submit">Send</button>
         </form>
     </div>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
