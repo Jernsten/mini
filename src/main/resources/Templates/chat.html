@@ -32,11 +32,13 @@
                 </tr>
                 </thead>
                 <tbody id="history">
+
                 <tr th:each="message: ${oldmessages}">
-                    <td th:text="${message.username}+': '+${message.message}"> message</td>
+                    <td th:text="${message.username}" class="speaker">Name</td>
+                    <td th:text="${message.message}" class="speach">Message</td>
                 </tr>
                 </tbody>
-                
+
                 <tbody id="messages">
 
                 </tbody>

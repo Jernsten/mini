@@ -1,8 +1,47 @@
 body {
-    background-color: burlywood;
+    background-color: #51aa94;
+    background: url("https://cdn.wallpapersafari.com/81/53/6Q8MGE.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #menuTop{
     display: flex;
     justify-content: space-around;
+}
+
+.speaker {
+    width: 10%;
+    background-color: rgba(0,0,0,0.1);
+}
+
+#title:first-child {
+    font-family: 'Abril Fatface';
+    letter-spacing: 3px;
+    text-align: center;
+    padding-top: 30vw;
+    font-size: 10vw;
+}
+
+#chitchat {
+    font-family: 'Oleo Script', cursive;
+    color: #0f6dd4;
+    padding-top: 0vw;
+    font-size: 7vw;
+}
+
+
+#slogan p, #slogan a {
+    text-align: center;
+    padding: 10vw;
+}
+
+#main-content {
+    height: 80vw;
+}
+
+#main-content p {
+    font-family: 'Abril Fatface';
 }
