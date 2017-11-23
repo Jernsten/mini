@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:overflow="http://www.w3.org/1999/xhtml">
 <head>
     <title>Chatbook</title>
     <!--<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
@@ -14,13 +14,18 @@
     enabled. Please enable
     Javascript and reload this page!</h2></noscript>
 <div id="main-content" class="container">
-    <div class="row">
-        <div class="col-md-6">
-            Hi <span id="name" th:text="${username}">username</span>, you're now ready to ChitChat!
+    <header>
+        <div class="row">
+            <div class="col-md-6">
+                Hi <span id="name" th:text="${username}">username</span>, you're now ready to ChitChat!
+            </div>
         </div>
-    </div>
+        <div>
 
-    <!-- New message template-->
+            <a href="/logout" id="logout" class="btn btn-default" type="submit" style="float: right; margin-top: 1em;">Logout</a>
+
+        </div>
+    </header>
 
     <ol class="chat">
         <div th:each="message: ${oldmessages}">
@@ -42,9 +47,11 @@
         <form>
             <textarea type="text" id="message" placeholder="Say something..."/>
             <input type="hidden" id="username" th:value="${username}"/>
-            <button type="submit" class="send" value="Send"/>
+            <button type="submit" class="send">Send</button>
         </form>
     </div>
+</div>
+</footer>
 </div>
 </body>
 </html>

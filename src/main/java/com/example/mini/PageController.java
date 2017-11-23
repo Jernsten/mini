@@ -3,12 +3,15 @@ package com.example.mini;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.jws.WebParam;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,18 +23,14 @@ public class PageController {
     @Autowired
     private Repository repository;
 
-/*    @GetMapping("/")
-    public ModelAndView chat(HttpSession session) {
-        if (session.getAttribute("username") != null) {
-            List<Message> messageList = repository.loadOldMessages(); // Contains messages from database
-
-            return new ModelAndView("chat")
-                    .addObject("oldmessages", messageList)
-                    .addObject("username", session.getAttribute("username"));
-        } else {
-            return new ModelAndView("login");
-        }
-    }*/
+    @GetMapping("/logout")
+    public String logout(HttpSession httpSession, HttpServletResponse res) {
+        Cookie cookie = new Cookie("JSESSIONID", null);
+        cookie.setMaxAge(0);
+        res.addCookie(cookie);
+        httpSession.invalidate();
+        return "redirect:/";
+    }
     @GetMapping("/")
     public ModelAndView chat(HttpSession session) {
         if (session.getAttribute("username") != null) {
