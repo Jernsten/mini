@@ -1,5 +1,6 @@
 package com.example.mini;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,7 +47,7 @@ public class PageController {
         } else {
             
             // Om lösenordet matchar
-            if (password.equals(user.getPassword())) {
+            if (BCrypt.checkpw(password, user.getPassword())) {
                 session.setAttribute("username", username);
             }
             
