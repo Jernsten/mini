@@ -75,9 +75,11 @@
 
         <span id="chitchat">ChitChat</span>
         <span class="slogan">Nice to have you back <span id="name" th:text="${username}">username</span>!</span>
-        <input type="button" class="btn btn-info" data-toggle="modal" data-target=".profileModalBase">Profile</input>
-        <input type="button" class="btn btn-info" data-toggle="modal" data-target="#passwordModal" value="Settings"/>
-        <a href="/logout" id="logout" class="btn btn-info" type="submit"><input type="button">Logout</input>
+        <div id="buttonContainer">
+            <input type="button" class="btn btn-info" data-toggle="modal" data-target=".profileModalBase">Profile</input>
+            <input type="button" class="btn btn-info" data-toggle="modal" data-target="#passwordModal" value="Settings"/>
+            <a href="/logout" id="logout" class="btn btn-info" type="submit"><input type="button">Logout</input>
+            </div>
         </a>
 
     </header>
