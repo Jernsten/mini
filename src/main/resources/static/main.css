@@ -1,3 +1,8 @@
+html, body {
+    font-family: 'Lato', sans-serif;
+}
+
+
 body {
     background-color: #51aa94;
     background: url("/bakgrunden.jpg") no-repeat center center fixed;
@@ -7,38 +12,31 @@ body {
     background-size: cover;
 }
 
-
 #title:first-child {
     font-family: 'Abril Fatface';
     letter-spacing: 3px;
     text-align: center;
-    padding-top: 30vw;
+    padding-top: 0vh;
     font-size: 10vw;
 }
 
 #chitchat {
     font-family: 'Oleo Script', cursive;
     color: #0f6dd4;
-    padding-top: 0vw;
-    font-size: 7vw;
+    padding-top: 15vh;
+    font-size: 12vw;
 }
 
 #slogan p, #slogan a {
     text-align: center;
-    padding: 10vw;
-}
-
-#main-content {
-    height: 80vw;
 }
 
 #main-content p {
     font-family: 'Abril Fatface';
 }
-
 .login-page {
     width: 360px;
-    padding: 8% 0 0;
+    padding: 1vh 0 0;
     margin: auto;
 }
 .form {
@@ -76,14 +74,10 @@ body {
     transition: all 0.3 ease;
     cursor: pointer;
 }
+
+
 .form button:hover,.form button:active,.form button:focus {
     background: #43A047;
-}
-
-
-html, body {
-    font-family: 'Lato', sans-serif;
-    margin: 0px auto;
 }
 ::selection{
     background: rgba(82,179,217,0.3);
@@ -93,16 +87,16 @@ html, body {
 /* M E S S A G E S */
 
 .chat {
+    position: fixed;
+    left: 5vw;
+    bottom: 6vh;
     list-style: none;
     background-color: rgba(255, 180, 221, 0.21);
     margin: 0;
-    width: 80vh;
+    width: 90vw;
     padding: 0 0 10px 0;
-    margin-top: 60px;
-    margin-bottom: 70px;
-    margin: 60px auto 15px auto;
     border-radius: 10px;
-    max-height: 80vh;
+    max-height: 70vh;
     overflow:hidden;
     overflow-y:scroll;
 
@@ -306,135 +300,7 @@ emoji.hearth_blue{background-image: url(https://i.imgur.com/gR9juts.png);}
 emoji.funny{background-image: url(https://i.imgur.com/qKia58V.png);}
 emoji.shit{background-image: url(https://i.imgur.com/H5Jba8r.png);}
 
-/*
-@-webikt-keyframes pulse {
-    from { opacity: 0; }
-    to { opacity: 0.5; }
-}
 
-::-webkit-scrollbar {
-    min-width: 12px;
-    width: 12px;
-    max-width: 12px;
-    min-height: 12px;
-    height: 12px;
-    max-height: 12px;
-    background: #252C33;
-    box-shadow: inset 0px 50px 0px rgba(27,35,42,0.9), inset 0px -50px 0px #eee;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.2);
-    border: none;
-    border-radius: 100px;
-    border: solid 3px #252C33;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-::-webkit-scrollbar-thumb:active {
-    background: rgba(255,255,255,0.1);
-}
-
-::-webkit-scrollbar-button {
-    display: block;
-    height: 26px;
-}
-
-input.textarea {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    width: 100%;
-    height: 50px;
-    z-index: 99;
-    background: #fafafa;
-    border: none;
-    outline: none;
-    padding-left: 55px;
-    padding-right: 55px;
-    color: #666;
-    font-weight: 400;
-}
-*/
-/* R E S P O N S I V E   C O N F I G U R A T I O N */
-/*
-@media screen and (max-width: 750px) {
-    ::-webkit-scrollbar {
-        display: none;
-    }
-    .chat{
-        margin-bottom: 55px;
-    }
-    .msg p {
-        font-size: 20px;
-        font-family: 'Oleo Script';
-    }
-    .msg .user {
-        font-family: 'Abril Fatface';
-        font-size: 20px;
-    }
-    .msg img {
-        width: 300px;
-    }
-    .chat .notification {
-        font-size: 12px;
-        margin: 7px 30%;
-        width: 40%;
-    }
-    .chat .day {
-        font-size: 11px;
-    }
-    .emojis {
-        width: 25%;
-    }
-    .send {
-        width: 25%;
-    }
-    textarea {
-        left: 0px;
-        right: 0px;
-        bottom: 50px;
-        padding-left: 5%;
-        padding-right: 5%;
-        padding-top: 20px;
-        width: 90%;
-        border-radius: 0px;
-        height: 28px;
-        background: #fafafa;
-        box-shadow: none;
-        transition: all .4s cubic-bezier(0.2, -0.2, 0.2, 1.2);
-    }
-    textarea:focus {
-        height: 30vh;
-        margin-top: 30vh;
-        box-shadow: 0px -20px 20px rgba(0,0,0,0.1);
-    }
-    form:focus ~ .typezone {
-        bottom: 50vh;
-    }
-}
-@media screen and (max-width: 550px) {
-    .msg p {
-        max-width: 250px;
-    }
-    .msg img {
-        width: 200px;
-    }
-    .chat .notification {
-        font-size: 12px;
-        margin: 7px 0px;
-        width: 100%;
-        border-radius: 0px;
-    }
-    .chat .notification time {
-        right: 10px;
-    }
-}
-*/
 #cog {
     width:40px;
     height: auto;
@@ -478,4 +344,13 @@ form:focus ~ .typezone {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
+}
+
+.container {
+
+}
+
+header {
+    margin: auto;
+    width: 90vw;
 }

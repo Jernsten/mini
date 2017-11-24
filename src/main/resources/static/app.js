@@ -51,8 +51,7 @@ function showMessage(message) {
 
     $("#messages").append(out);
 
-
-    $(".chat").animate({ scrollTop: $(document).height()}, 1000);
+    scroll();
 }
 
 function disconnect() {
@@ -61,6 +60,10 @@ function disconnect() {
     }
     setConnected(false);
     console.log("Disconnected");
+}
+
+function scroll(){
+    document.onload = $(".chat").animate({ scrollTop: $(document).height()}, 1000);
 }
 
 // Page settings
@@ -82,9 +85,7 @@ $(function () {
         document.querySelector("#message").value = '';
     });
 
-    window.onload = function(){
-        $(".chat").animate({ scrollTop: $(document).height()}, 1000);
-    }
     connect();
+    scroll();
 
 });
