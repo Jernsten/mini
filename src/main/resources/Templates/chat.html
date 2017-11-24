@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:overflow="http://www.w3.org/1999/xhtml">
 <head>
     <title>Chatbook</title>
-    <!--<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
-    <link href="/main.css" rel="stylesheet"/>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/main.css" rel="stylesheet"/>
 
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/app.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet"/>
 </head>
@@ -19,10 +19,8 @@
     enabled. Please enable
     Javascript and reload this page!</h2></noscript>
 <div class="container">
-    <!-- Large modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <!-- Modals-->
+    <div class="modal fade bd-example-modal-lg profileModalBase" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="profileModal">
@@ -39,17 +37,54 @@
             </div>
         </div>
     </div>
+    
+    <div id="passwordModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Password</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <div class="td">
+                        <input type="password" id="txtNewPassword" />
+                    </div>
+                    <div class="td">
+                        <input type="password" id="txtConfirmPassword" onChange="checkPasswordMatch();" />
+                    </div>
+                    <div class="registrationFormAlert" id="divCheckPasswordMatch">
+                    </div>
+                    <a href="/changepassword" id="changePasswordButton" class="btn btn-default" type="submit" role="button">Apply</a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
     <header>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <span id="chitchat">ChitChat</span>
-                <span class="slogan">Nice to have you back<span id="name" th:text="${user.nickName}">username</span>!</span>
 
-                <a href="/logout" id="logout" class="btn btn-default" type="submit"><button id="logout">Logout</button></a>
+                <span class="slogan">Nice to have you back<span id="name" th:text="${user.nickName}">username</span>!</span>
+                <input type="button" class="btn btn-info" data-toggle="modal" data-target="#passwordModal">Settings</input>
+                <!-- Large modal -->
+                <input type="button" class="btn btn-primary" data-toggle="modal" data-target=".profileModalBase">Profile</input>
+
+                <a href="/logout" id="logout" class="btn btn-default" type="submit"><input type="button" class="btn btn-info">Logout</input></a>
+
+
             </div>
         </div>
+
     </header>
     <ol class="chat">
         <div th:each="message: ${oldmessages}">
@@ -79,8 +114,5 @@
 
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>
