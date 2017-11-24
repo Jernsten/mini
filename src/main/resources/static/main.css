@@ -407,9 +407,14 @@ form:focus ~ .typezone {
 header {
     margin: auto;
     width: 90vw;
+    margin-top: 6vh;
 }
 
 h1 {
     margin: auto;
     margin-bottom: 10vh;
+}
+
+header a input {
+    display: none;
 }

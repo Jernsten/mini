@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:overflow="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Chatbook</title>
-    <!--<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
+    <title>ChitChat</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/main.css" rel="stylesheet"/>
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
     <script src="/app.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet"/>
 </head>
@@ -19,8 +21,8 @@
     <header>
         <span id="chitchat">ChitChat</span>
         <span class="slogan">Nice to have you back <span id="name" th:text="${username}">username</span>!</span>
-        <a href="/logout" id="logout" class="btn btn-default" type="submit">
-            <button id="logout">Logout</button>
+        <input type="button" class="btn btn-info" data-toggle="modal" data-target="#passwordModal" value="Settings"/>
+        <a href="/logout" id="logout" class="btn btn-info" type="submit"><input type="button">Logout</input>
         </a>
     </header>
     <ol class="chat">
@@ -40,15 +42,41 @@
 
     <!-- message input-->
     <div>
-        <!--<form>
-            <button type="submit" class="send">Send</button>
-        </form>-->
         <form>
             <input type="text" id="message" class="textarea" placeholder="Type your message…" autofocus="autofocus"/>
             <input type="hidden" id="username" th:value="${username}"/>
             <input type="submit" id="send"/>
         </form>
 
+    </div>
+</div>
+<!-- Modal -->
+<div id="passwordModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                <div class="td">
+                    <input type="password" id="txtNewPassword"/>
+                </div>
+                <div class="td">
+                    <input type="password" id="txtConfirmPassword" onChange="checkPasswordMatch();"/>
+                </div>
+                <div class="registrationFormAlert" id="divCheckPasswordMatch">
+                </div>
+                <a href="/changepassword" id="changePasswordButton" class="btn btn-default" type="submit" role="button">Apply</a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>
 </body>
