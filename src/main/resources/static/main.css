@@ -23,7 +23,7 @@ body {
     font-family: 'Oleo Script', cursive;
     color: #0f6dd4;
     padding-top: 15vh;
-    font-size: 10vw;
+    font-size: 7vw;
 }
 
 #slogan {
@@ -251,7 +251,7 @@ html, body {
 }
 
 .msg .user {
-    font-size: 17px;
+    font-size: 1.5vw;
     margin: 0 0 2px 0;
     color: #00000085;
     font-weight: 700;
@@ -277,7 +277,7 @@ html, body {
 }
 
 .msg p {
-    font-size: 20px;
+    font-size: 2vw;;
     margin: 0 0 2px 0;
     color: #060a1b;
     transition: all .2s ease;
