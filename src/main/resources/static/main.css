@@ -22,8 +22,14 @@ body {
 #chitchat {
     font-family: 'Oleo Script', cursive;
     color: #0f6dd4;
+    font-size: 10vh;
+}
+
+#logga {
+    font-family: 'Oleo Script', cursive;
+    color: #0f6dd4;
+    font-size: 10vh;
     padding-top: 15vh;
-    font-size: 7vw;
 }
 
 #slogan {
@@ -491,13 +497,22 @@ form:focus ~ .typezone {
 }
 
 .container {
+    padding-left:0px;
+    padding-right:0px;
+    margin-left:5vw;
+    margin-right:0px;
 
 }
 
 header {
-    margin: auto;
+    max-height: 10vh;
     width: 90vw;
-    margin-top: 6vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14vh;
 }
 
 h1 {
@@ -530,5 +545,8 @@ header a input {
     content: "\"";
 }
 
-.msg .user:before {
+#buttonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }

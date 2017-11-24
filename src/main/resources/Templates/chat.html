@@ -42,9 +42,12 @@
     </div>
     <header>
         <span id="chitchat">ChitChat</span>
-        <span id="slogan">Nice to have you back <span id="name" th:text="${user.nickName}">username</span>!</span>
-        <input type="button" class="btn btn-info" data-toggle="modal" data-target=".profileModalBase" value="Profile" />
-        <a href="/logout" id="logout" class="btn btn-info" type="submit"><input type="button">Logout</input></a>
+        <span id="slogan">Nice to have you back <span id="name" th:text="${username}">username</span>!</span>
+        <div id="buttonContainer">
+            <input type="button" class="btn btn-info" data-toggle="modal" data-target=".profileModalBase" value="Profile" />
+            <!-- <input type="button" class="btn btn-info" data-toggle="modal" data-target="#passwordModal" value="Settings"/> -->
+            <a href="/logout" id="logout" class="btn btn-info" type="submit"><input type="button">Logout</input></a>
+        </div>
     </header>
     <ol class="chat">
         <div th:each="message: ${oldmessages}">

@@ -60,7 +60,7 @@ function disconnect() {
 }
 
 function scroll() {
-    document.onload = $(".chat").animate({scrollTop: 9999999}, 1000);//$(".chat").height()}, 1000);
+    document.onload = $(".chat").animate({scrollTop: $(".chat").height()*100}, 1000);
 }
 
 // Page settings
