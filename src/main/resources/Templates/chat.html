@@ -17,13 +17,11 @@
     Javascript and reload this page!</h2></noscript>
 <div class="container">
     <header>
-        <div class="row">
-            <div class="col-md-6">
-                <span id="chitchat">ChitChat</span>
-                <span class="slogan">Nice to have you back <span id="name" th:text="${username}">username</span>!</span>
-                <a href="/logout" id="logout" class="btn btn-default" type="submit"><button id="logout">Logout</button></a>
-            </div>
-        </div>
+        <span id="chitchat">ChitChat</span>
+        <span class="slogan">Nice to have you back <span id="name" th:text="${username}">username</span>!</span>
+        <a href="/logout" id="logout" class="btn btn-default" type="submit">
+            <button id="logout">Logout</button>
+        </a>
     </header>
     <ol class="chat">
         <div th:each="message: ${oldmessages}">
