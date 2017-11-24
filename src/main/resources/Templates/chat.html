@@ -36,14 +36,12 @@
                         <h2 id="description" th:text="${user.description}"></h2>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
     <header>
         <span id="chitchat">ChitChat</span>
-
-        <span class="slogan">Nice to have you back <span id="name" th:text="${username}">username</span>!</span>
+        <span class="slogan">Nice to have you back <span id="name" th:text="${user.nickName}">username</span>!</span>
         <div id="buttonContainer">
             <input type="button" class="btn btn-info" data-toggle="modal" data-target=".profileModalBase" value="Profile"></input>
             <!-- <input type="button" class="btn btn-info" data-toggle="modal" data-target="#passwordModal" value="Settings"/> -->
