@@ -491,6 +491,10 @@ form:focus ~ .typezone {
 }
 
 .container {
+    padding-left:0px;
+    padding-right:0px;
+    margin-left:5vw;
+    margin-right:0px;
 
 }
 
@@ -501,8 +505,8 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 10vh;
+    align-items: center;
+    margin-top: 14vh;
 }
 
 h1 {
