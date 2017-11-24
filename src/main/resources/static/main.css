@@ -87,12 +87,14 @@ body {
 /* M E S S A G E S */
 
 .chat {
+    position: fixed;
+    left: 5vw;
+    bottom: 6vh;
     list-style: none;
     background-color: rgba(255, 180, 221, 0.21);
     margin: 0;
     width: 90vw;
     padding: 0 0 10px 0;
-    margin: 0px auto 70px auto;
     border-radius: 10px;
     max-height: 70vh;
     overflow:hidden;
