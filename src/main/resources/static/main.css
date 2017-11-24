@@ -88,9 +88,30 @@ body {
     background: #43A047;
 }
 
+html, body {
+    font-family: 'Lato', sans-serif;
+    margin: 0px auto;
+}
+
 ::selection {
     background: rgba(82, 179, 217, 0.3);
     color: inherit;
+}
+
+/* P R O F I L E  M O D A L */
+
+.profileModal {
+    display: flex;
+
+    padding: 2%;
+}
+
+.profilePicture {
+    display: block;
+    max-width: 220px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
 }
 
 /* M E S S A G E S */
@@ -107,6 +128,7 @@ body {
     max-height: 70vh;
     overflow: hidden;
     overflow-y: scroll;
+
 
 }
 
@@ -305,6 +327,54 @@ emoji {
     margin-left: 2px;
     margin-right: 2px;
     transform: translate3d(0px, 4px, 0px);
+}
+
+emoji.please {
+    background-image: url(https://imgur.com/ftowh0s.png);
+}
+
+emoji.lmao {
+    background-image: url(https://i.imgur.com/MllSy5N.png);
+}
+
+emoji.happy {
+    background-image: url(https://imgur.com/5WUpcPZ.png);
+}
+
+emoji.pizza {
+    background-image: url(https://imgur.com/voEvJld.png);
+}
+
+emoji.cryalot {
+    background-image: url(https://i.imgur.com/UUrRRo6.png);
+}
+
+emoji.books {
+    background-image: url(https://i.imgur.com/UjZLf1R.png);
+}
+
+emoji.moai {
+    background-image: url(https://imgur.com/uSpaYy8.png);
+}
+
+emoji.suffocated {
+    background-image: url(https://i.imgur.com/jfTyB5F.png);
+}
+
+emoji.scream {
+    background-image: url(https://i.imgur.com/tOLNJgg.png);
+}
+
+emoji.hearth_blue {
+    background-image: url(https://i.imgur.com/gR9juts.png);
+}
+
+emoji.funny {
+    background-image: url(https://i.imgur.com/qKia58V.png);
+}
+
+emoji.shit {
+    background-image: url(https://i.imgur.com/H5Jba8r.png);
 }
 
 emoji.please {
