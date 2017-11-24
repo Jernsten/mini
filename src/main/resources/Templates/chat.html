@@ -4,11 +4,12 @@
     <title>ChitChat</title>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/main.css" rel="stylesheet"/>
+
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-    <script src="/app.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/app.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet"/>
@@ -20,16 +21,71 @@
     enabled. Please enable
     Javascript and reload this page!</h2></noscript>
 <div class="container">
+    <!-- Modals-->
+    <div class="modal fade bd-example-modal-lg profileModalBase" tabindex="-1" role="dialog"
+         aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="profileModal">
+                    <img class="profilePicture" th:src="${user.imgUrl}" alt="Profile pic"/>
+                    <div>
+                        <h2 th:text="${user.userId}"></h2>
+                        <h2 th:text="${user.firstName}"></h2>
+                        <h2 th:text="${user.lastName}"></h2>
+                        <h2 th:text="${user.age}"></h2>
+                        <h2 th:text="${user.description}"></h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="passwordModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Password</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <div class="td">
+                        <input type="password" id="txtNewPassword"/>
+                    </div>
+                    <div class="td">
+                        <input type="password" id="txtConfirmPassword" onChange="checkPasswordMatch();"/>
+                    </div>
+                    <div class="registrationFormAlert" id="divCheckPasswordMatch">
+                    </div>
+                    <a href="/changepassword" id="changePasswordButton" class="btn btn-default" type="submit"
+                       role="button">Apply</a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
     <header>
+
+
         <span id="chitchat">ChitChat</span>
         <span id="slogan">Nice to have you back <span id="name" th:text="${username}">username</span>!</span>
         <input type="button" class="btn btn-info" data-toggle="modal" data-target="#passwordModal" value="Settings"/>
         <a href="/logout" id="logout" class="btn btn-info" type="submit"><input type="button">Logout</input>
         </a>
+
     </header>
     <ol class="chat">
         <div th:each="message: ${oldmessages}">
-            <li th:class="(${message.username} == ${username}) ? 'self':'other'">
+            <li th:class="(${message.username} == ${user.nickName}) ? 'self':'other'">
                 <div class="msg">
                     <div class="user" th:text="${message.username}">User</div>
                     <p th:text="${message.message}">Message</p>
@@ -46,39 +102,10 @@
     <div>
         <form>
             <input type="text" id="message" class="textarea" placeholder="Type your message…" autofocus="autofocus"/>
-            <input type="hidden" id="username" th:value="${username}"/>
+            <input type="hidden" id="username" th:value="${user.nickName}"/>
             <input type="submit" id="send"/>
         </form>
 
-    </div>
-</div>
-<!-- Modal -->
-<div id="passwordModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Change Password</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                <div class="td">
-                    <input type="password" id="txtNewPassword"/>
-                </div>
-                <div class="td">
-                    <input type="password" id="txtConfirmPassword" onChange="checkPasswordMatch();"/>
-                </div>
-                <div class="registrationFormAlert" id="divCheckPasswordMatch">
-                </div>
-                <a href="/changepassword" id="changePasswordButton" class="btn btn-default" type="submit" role="button">Apply</a>
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
     </div>
 </div>
 </body>

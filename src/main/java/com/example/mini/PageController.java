@@ -36,10 +36,10 @@ public class PageController {
     public ModelAndView chat(HttpSession session) {
         if (session.getAttribute("username") != null) {
             List<Message> messageList = repository.loadOldMessages(); // Contains messages from database
-            
+            User user = repository.loadUserProfileInfo(session.getAttribute("username").toString());
             return new ModelAndView("chat")
                     .addObject("oldmessages", messageList)
-                    .addObject("username", session.getAttribute("username"));
+                    .addObject("user", user);
         } else {
             return new ModelAndView("login");
         }
@@ -70,6 +70,5 @@ public class PageController {
     public ModelAndView profile(@PathVariable String username){
         User user = repository.loadUserProfileInfo(username);
         return new ModelAndView("profile").addObject("user", user);
-
     }
 }
