@@ -106,12 +106,32 @@ html, body {
     padding: 2%;
 }
 
-.profilePicture {
+#profilePicture {
     display: block;
     max-width: 220px;
     max-height: 200px;
     width: auto;
     height: auto;
+}
+
+#userId{
+
+}
+
+#firstName{
+
+}
+
+#lastName{
+
+}
+
+#age{
+
+}
+
+#description{
+
 }
 
 /* M E S S A G E S */
