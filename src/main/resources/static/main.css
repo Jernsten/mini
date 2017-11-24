@@ -94,7 +94,7 @@ body {
     padding: 0 0 10px 0;
     margin: 0px auto 70px auto;
     border-radius: 10px;
-    max-height: 80vh;
+    max-height: 70vh;
     overflow:hidden;
     overflow-y:scroll;
 
@@ -346,4 +346,9 @@ form:focus ~ .typezone {
 
 .container {
 
+}
+
+header {
+    margin: auto;
+    width: 90vw;
 }
