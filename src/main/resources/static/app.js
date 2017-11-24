@@ -33,15 +33,12 @@ function sendMessage() {
 }
 
 function showMessage(message) {
-//    $("#messages").append("<tr><td class=\"speaker\">" + JSON.parse(message.body).username + "</td><td class=\"speach\">" + JSON.parse(message.body).content + "</td></tr>");
-
-    console.log($("#name"));
 
     if (document.getElementById('name').innerText == JSON.parse(message.body).username) {
         var out = "<li class=\"self\"><div class='msg'>" +
             "<div class='user'>" + JSON.parse(message.body).username + "</div>" +
             "<p>" + JSON.parse(message.body).content + "</p>" +
-            "<time>...time...</time></div></li>";
+            "</div></li>";
     } else {
         var out = "<li class=\"other\"><div class='msg'>" +
             "<div class='user'>" + JSON.parse(message.body).username + "</div>" +
@@ -62,8 +59,8 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function scroll(){
-    document.onload = $(".chat").animate({ scrollTop: $(document).height()}, 1000);
+function scroll() {
+    document.onload = $(".chat").animate({scrollTop: 9999999}, 1000);//$(".chat").height()}, 1000);
 }
 
 // Page settings

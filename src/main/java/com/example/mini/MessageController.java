@@ -19,10 +19,9 @@ public class MessageController {
     @MessageMapping("/message")
     @SendTo("/incoming/messages")
     public ReturnMessage message(Message message) throws Exception {
-        
         logMessage(message);
         
-        Thread.sleep(1000); // simulated delay
+        Thread.sleep(500); // simulated delay
         
         return new ReturnMessage(message.getMessage(), message.getUsername());
     }

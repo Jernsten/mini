@@ -508,3 +508,27 @@ h1 {
 header a input {
     display: none;
 }
+
+#userId {
+    display: none;
+}
+
+#age:before {
+    content: "Age: ";
+}
+
+.profileModal div {
+    padding-left: 40px;
+    margin: auto 0;
+}
+
+#description:before {
+    content: "\"";
+}
+
+#description:after {
+    content: "\"";
+}
+
+.msg .user:before {
+}
