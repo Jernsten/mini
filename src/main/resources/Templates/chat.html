@@ -27,30 +27,24 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="profileModal">
-                    <img class="profilePicture" th:src="${user.imgUrl}" alt="Profile pic"/>
+                    <img id="profilePicture" th:src="${user.imgUrl}" alt="Profile pic"/>
                     <div>
-                        <h2 th:text="${user.userId}"></h2>
-                        <h2 th:text="${user.firstName}"></h2>
-                        <h2 th:text="${user.lastName}"></h2>
-                        <h2 th:text="${user.age}"></h2>
-                        <h2 th:text="${user.description}"></h2>
+                        <h2 id="userId" th:text="${user.userId}"></h2>
+                        <h2 id="firstName" th:text="${user.firstName}"></h2>
+                        <h2 id="lastName" th:text="${user.lastName}"></h2>
+                        <h2 id="age" th:text="${user.age}"></h2>
+                        <h2 id="description" th:text="${user.description}"></h2>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
-
-
-
     <header>
-
-
         <span id="chitchat">ChitChat</span>
         <span id="slogan">Nice to have you back <span id="name" th:text="${user.nickName}">username</span>!</span>
-        <a href="/logout" id="logout" class="btn btn-info" type="submit"><input type="button">Logout</input>
-        </a>
-
+        <input type="button" class="btn btn-info" data-toggle="modal" data-target=".profileModalBase">Profile</input>
+        <a href="/logout" id="logout" class="btn btn-info" type="submit"><input type="button">Logout</input></a>
     </header>
     <ol class="chat">
         <div th:each="message: ${oldmessages}">
