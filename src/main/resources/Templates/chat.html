@@ -13,67 +13,36 @@
 
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet"/>
+
 </head>
+
 <body>
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
     enabled. Please enable
     Javascript and reload this page!</h2></noscript>
 <div class="container">
     <!-- Modals-->
-    <div class="modal fade bd-example-modal-lg profileModalBase" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg profileModalBase" tabindex="-1" role="dialog"
+         aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="profileModal">
-                    <img class="profilePicture" th:src="${user.imgUrl}" alt="Profile pic"/>
+                    <img id="profilePicture" th:src="${user.imgUrl}" alt="Profile pic"/>
                     <div>
-                        <h2 th:text="${user.userId}"></h2>
-                        <h2 th:text="${user.firstName}"></h2>
-                        <h2 th:text="${user.lastName}"></h2>
-                        <h2 th:text="${user.age}"></h2>
-                        <h2 th:text="${user.description}"></h2>
+                        <h2 id="userId" th:text="${user.userId}"></h2>
+                        <h2 id="firstName" th:text="${user.firstName}"></h2>
+                        <h2 id="lastName" th:text="${user.lastName}"></h2>
+                        <h2 id="age" th:text="${user.age}"></h2>
+                        <h2 id="description" th:text="${user.description}"></h2>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
-    
-    <div id="passwordModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Change Password</h4>
-                </div>
-                <div class="modal-body">
-                    <p>
-                    <div class="td">
-                        <input type="password" id="txtNewPassword" />
-                    </div>
-                    <div class="td">
-                        <input type="password" id="txtConfirmPassword" onChange="checkPasswordMatch();" />
-                    </div>
-                    <div class="registrationFormAlert" id="divCheckPasswordMatch">
-                    </div>
-                    <a href="/changepassword" id="changePasswordButton" class="btn btn-default" type="submit" role="button">Apply</a>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
     <header>
-
-
-
         <span id="chitchat">ChitChat</span>
+
         <span class="slogan">Nice to have you back <span id="name" th:text="${username}">username</span>!</span>
         <div id="buttonContainer">
             <input type="button" class="btn btn-info" data-toggle="modal" data-target=".profileModalBase">Profile</input>
@@ -89,7 +58,6 @@
                 <div class="msg">
                     <div class="user" th:text="${message.username}">User</div>
                     <p th:text="${message.message}">Message</p>
-                    <time>Time...</time>
                 </div>
             </li>
         </div>
